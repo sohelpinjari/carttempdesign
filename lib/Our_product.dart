@@ -1,3 +1,4 @@
+import 'package:carttempdesign/our_prod_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:sizer/sizer.dart';
@@ -18,21 +19,21 @@ class products {
   // String? size_m;
   // String? size_l;
 
-  String? Price;
+  int? Price;
 
   products(this.image, this.Brand_Name, this.Price);
 }
 
 class _ourproductState extends State<ourproduct> {
   List<products> images = [
-    products("assets/download.jpg", "Excee Sneekers", "\₹240.00"),
-    products("assets/download.jpg", "Excee Sneekers", "\₹240.00"),
-    products("assets/download.jpg", "Excee Sneekers", "\₹240.00"),
-    products("assets/download.jpg", "Excee Sneekers", "\₹240.00"),
-    products("assets/download.jpg", "Excee Sneekers", "\₹240.00"),
-    products("assets/download.jpg", "Excee Sneekers", "\₹240.00"),
-    products("assets/download.jpg", "Excee Sneekers", "\₹240.00"),
-    products("assets/download.jpg", "Excee Sneekers", "\₹240.00"),
+    products("assets/download.jpg", "Nike Air Max 20", 240),
+    products("assets/1672334109-jordan-3-1672334059.jpg", "Excee Sneekers", 260),
+    products("assets/download (2).jpg", "Air Max Motion 2", 290),
+    products("assets/download (3).jpg", "Leather Sneekers", 270),
+    products("assets/pexels-melvin-buezo-2529147.jpg", "Excee Sneekers", 240),
+    products("assets/images.jpg", "Excee Sneekers", 240),
+    products("assets/download.jpg", "Excee Sneekers", 240),
+    products("assets/download.jpg", "Excee Sneekers", 240),
   ];
 
   int _selectedIndex = 0;
@@ -379,7 +380,20 @@ class _ourproductState extends State<ourproduct> {
                           mainAxisSpacing: 15),
                       itemBuilder: (BuildContext context, int index) {
                         return GestureDetector(
-                          onTap: () {
+
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => add_cart(
+                                        imagenevigator:
+                                        (images[index].image).toString(),
+                                        pronamenevigatior:
+                                        (images[index].Brand_Name).toString(),
+                                        pricenamenevigatior: images[index].Price,
+
+                                      )));
+
 
                           },
                           child: Column(
@@ -416,7 +430,7 @@ class _ourproductState extends State<ourproduct> {
                                           color: Color(0xff414591)),
                                     ),
                                     Text(
-                                      images[index].Price.toString(),
+                                      '\₹ ' + images[index].Price.toString() + '.00',
                                       style: TextStyle(
                                           fontSize: 3.h,
                                           fontWeight: FontWeight.bold,

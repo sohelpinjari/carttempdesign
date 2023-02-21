@@ -1,16 +1,61 @@
+import 'package:carttempdesign/cart_order.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class add_cart extends StatefulWidget {
-  const add_cart({Key? key}) : super(key: key);
+  String? imagenevigator;
+  String? pronamenevigatior;
+  int? pricenamenevigatior;
+
+  add_cart(
+      {Key? key,
+      this.imagenevigator,
+      this.pronamenevigatior,
+      this.pricenamenevigatior})
+      : super(key: key);
 
   @override
   State<add_cart> createState() => _add_cartState();
 }
 
+class products {
+  String? image;
+  String? Brand_Name;
+
+  // String? Street_Wear;
+  // String? Artist_Name;
+  // String? size_s;
+  // String? size_m;
+  // String? size_l;
+
+  int? Price;
+
+  products(this.image, this.Brand_Name, this.Price);
+}
+
 class _add_cartState extends State<add_cart> {
+  List<products> images = [
+    products("assets/product_1_img2.png", "Brand Name", 240),
+  ];
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
+  List<String> image = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    // tripur= [
+    // widget.coloridnevigator.()
+    //
+    // ];
+    image = [
+      widget.pronamenevigatior.toString(),
+      widget.imagenevigator.toString(),
+      widget.pricenamenevigatior.toString()
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,9 +169,8 @@ class _add_cartState extends State<add_cart> {
                     backgroundColor: Colors.white,
                     radius: 12.h,
                     child: CircleAvatar(
-                      backgroundImage: AssetImage(
-                        'assets/download.jpg',
-                      ),
+                      backgroundImage:
+                          AssetImage(widget.imagenevigator.toString()),
                       radius: 10.h,
                     ),
                   ),
@@ -172,7 +216,7 @@ class _add_cartState extends State<add_cart> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Nike Air Max 200",
+                              widget.pronamenevigatior.toString(),
                               style: TextStyle(
                                   fontSize: 3.5.h,
                                   fontWeight: FontWeight.bold,
@@ -367,35 +411,52 @@ class _add_cartState extends State<add_cart> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "\$269.00",
+                                  '\₹ ' +   widget.pricenamenevigatior.toString()+ '.00',
                                   style: TextStyle(
                                       fontSize: 4.h,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black),
                                 ),
-                                Container(
-                                  height: 7.h,
-                                  width: 38.w,
-                                  child: Padding(
-                                    padding: EdgeInsets.all(1.h),
-                                    child: Row(
-                                      children: [
-                                        IconButton(
-                                          icon: Icon(
-                                            Icons.shopping_cart,
-                                            color: Colors.indigoAccent,
-                                            size: 3.h,
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => cart_order(
+                                                  imagenevigator: widget
+                                                      .imagenevigator
+                                                      .toString(),
+                                                  pronamenevigatior: widget
+                                                      .pronamenevigatior
+                                                      .toString(),
+                                                  pricenamenevigatior:
+                                                      widget.pricenamenevigatior,
+                                                )));
+                                  },
+                                  child: Container(
+                                    height: 7.h,
+                                    width: 38.w,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(1.h),
+                                      child: Row(
+                                        children: [
+                                          IconButton(
+                                            icon: Icon(
+                                              Icons.shopping_cart,
+                                              color: Colors.indigoAccent,
+                                              size: 3.h,
+                                            ),
+                                            onPressed: () {},
                                           ),
-                                          onPressed: () {},
-                                        ),
-                                        Text("Add to Cart"),
-                                      ],
+                                          Text("Add to Cart"),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Color(0xffff7f7f7),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
+                                    decoration: BoxDecoration(
+                                      color: Color(0xffff7f7f7),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(20)),
+                                    ),
                                   ),
                                 ),
                               ],
