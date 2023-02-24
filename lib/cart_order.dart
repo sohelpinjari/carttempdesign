@@ -1,3 +1,4 @@
+import 'package:carttempdesign/check_out_details.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -255,15 +256,17 @@ int? intialprice;
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => cart_order(
+                                builder: (context) => check_out_details(
                                   imagenevigator:
                                   widget.imagenevigator.toString(),
                                   pronamenevigatior:
                                   widget.pronamenevigatior.toString(),
-                                  pricenamenevigatior:    widget.pricenamenevigatior,
+                                  pricenamenevigatior:    price
 
 
-                                )));
+                                )
+                            )
+                        );
 
 
                       },
