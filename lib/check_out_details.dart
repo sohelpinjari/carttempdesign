@@ -1,5 +1,7 @@
+import 'package:carttempdesign/PaypalPayment.dart';
 import 'package:carttempdesign/payment_methods.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_paypal/flutter_paypal.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sizer/sizer.dart';
 
@@ -253,7 +255,7 @@ class _check_out_detailsState extends State<check_out_details> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(12),
                                   child: Image.asset(
-                                    'assets/preview.jpg',
+                                    'assets/paypal_PNG7.png',
                                     // widget.imagenevigator.toString(),
                                     height: 4.h,
                                     width: 15.w,
@@ -266,28 +268,28 @@ class _check_out_detailsState extends State<check_out_details> {
                                       fontSize: 2.5.h,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) => payment_method(
-                                                  imagenevigator:
-                                                  widget.imagenevigator.toString(),
-                                                  pronamenevigatior:
-                                                  widget.pronamenevigatior.toString(),
-                                                  pricenamenevigatior:    widget.pricenamenevigatior,
-
-
-                                                )));
-
-                                        },
-                                  child: Text('Change',
-                                      style: TextStyle(
-                                          fontSize: 2.5.h,
-                                          fontWeight: FontWeight.bold,
-                                          color: Color(0xff5a5a9f))),
-                                ),
+                                // GestureDetector(
+                                //   onTap: () {
+                                //     Navigator.push(
+                                //             context,
+                                //             MaterialPageRoute(
+                                //                 builder: (context) => payment_method(
+                                //                   imagenevigator:
+                                //                   widget.imagenevigator.toString(),
+                                //                   pronamenevigatior:
+                                //                   widget.pronamenevigatior.toString(),
+                                //                   pricenamenevigatior:    widget.pricenamenevigatior,
+                                //
+                                //
+                                //                 )));
+                                //
+                                //         },
+                                //   child: Text('Change',
+                                //       style: TextStyle(
+                                //           fontSize: 2.5.h,
+                                //           fontWeight: FontWeight.bold,
+                                //           color: Color(0xff5a5a9f))),
+                                // ),
                               ],
                             ),
                           ),
@@ -309,113 +311,336 @@ class _check_out_detailsState extends State<check_out_details> {
                       padding: EdgeInsets.symmetric(horizontal: 2.h),
                       child: GestureDetector(
                         onTap: () {
+                          // Navigator.of(context).push(
+                          //   MaterialPageRoute(
+                          //     builder: (BuildContext context) =>
+                          //         UsePaypal(
+                          //             sandboxMode: true,
+                          //             clientId:
+                          //             "Ad4MfIRjqBNOhnvGxvg-FocKsc2xTbYa6x1Wxmust02CZtOx3YzzTsWotxwHeIcetWUn6BFXAenALwxj",
+                          //             secretKey:
+                          //             "EFJUgQz4LImHw32NyKYwlQKapYJBo4hhkLHYCCD1CyVEGtuGCWxkDhJ7Umq749kf6zt2pDP-3eIN96kJ",
+                          //             returnURL:
+                          //             "https://samplesite.com/return",
+                          //             cancelURL:
+                          //             "https://samplesite.com/cancel",
+                          //             transactions: [
+                          //               {
+                          //                 "amount": {
+                          //                   "total":
+                          //                   '245',
+                          //                   "currency": "USD",
+                          //                   "details": {
+                          //                     "subtotal":
+                          //                     '240',
+                          //                     "shipping": '0',
+                          //                     "shipping_discount": 0
+                          //                   }
+                          //                 },
+                          //                 "description":
+                          //                 "The payment transaction description.",
+                          //                 // "payment_options": {
+                          //                 //   "allowed_payment_method":
+                          //                 //       "INSTANT_FUNDING_SOURCE"
+                          //                 // },
+                          //                 "item_list": {
+                          //                   "items": [
+                          //                     {
+                          //                       "name":
+                          //                       'sohel',
+                          //                       "price":
+                          //                       '245',
+                          //                       "quantity":1,
+                          //                       "currency": "USD"
+                          //                     }
+                          //                   ],
+                          //
+                          //                   // shipping address is not required though
+                          //                   "shipping_address": {
+                          //                     "recipient_name":
+                          //                     "asd",
+                          //                     "line1":
+                          //                     "asdasd",
+                          //                     "line2":
+                          //                     "ddd",
+                          //                     "city":
+                          //                     "zcxzcx",
+                          //                     "country_code": "US",
+                          //                     "postal_code": "395004",
+                          //                     "phone": "1020503305",
+                          //                     "state": "Texas"
+                          //                   },
+                          //                 }
+                          //               }
+                          //             ],
+                          //             note:
+                          //             "Contact us for any questions on your order.",
+                          //             onSuccess: (Map params) async {
+                          //               Fluttertoast.showToast(
+                          //                   msg:
+                          //                   "Paid : \$ 245",
+                          //                   toastLength:
+                          //                   Toast.LENGTH_SHORT,
+                          //                   gravity: ToastGravity.CENTER,
+                          //                   timeInSecForIosWeb: 1,
+                          //                   backgroundColor: Colors.red,
+                          //                   textColor: Colors.white,
+                          //                   fontSize: 16.0);
+                          //
+                          //               Text("onSuccess: $params");
+                          //             },
+                          //             onError: (error) {
+                          //               Fluttertoast.showToast(
+                          //                   msg: "Connection Error",
+                          //                   toastLength:
+                          //                   Toast.LENGTH_SHORT,
+                          //                   gravity: ToastGravity.CENTER,
+                          //                   timeInSecForIosWeb: 1,
+                          //                   backgroundColor: Colors.red,
+                          //                   textColor: Colors.white,
+                          //                   fontSize: 16.0);
+                          //
+                          //               print("onError: $error");
+                          //             },
+                          //             onCancel: (params) {
+                          //               Fluttertoast.showToast(
+                          //                   msg: "Payment Cancelled",
+                          //                   toastLength:
+                          //                   Toast.LENGTH_SHORT,
+                          //                   gravity: ToastGravity.CENTER,
+                          //                   timeInSecForIosWeb: 1,
+                          //                   backgroundColor: Colors.red,
+                          //                   textColor: Colors.white,
+                          //                   fontSize: 16.0);
+                          //               print('cancelled: $params');
+                          //             }),
+                          //   ),
+                          // );
+
+                          ////github code
                           Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  UsePaypal(
-                                      sandboxMode: true,
-                                      clientId:
-                                      "AX8Iqc4WKBgxRXtEl_hNIb7QN6roR4dxGgVbGrR6WuXTncqGyy1kb-xjfsJ_4RPKtsyVpOk0ia04Lv_g",
-                                      secretKey:
-                                      "EGFMgAdjWR-Ls0WqGnCzrjRyO7plbJcLCcq6vBL8WZxkl2PQvOiUqp0x7hgEkquLyMpr5CmgLc0CWBRl",
-                                      returnURL:
-                                      "https://samplesite.com/return",
-                                      cancelURL:
-                                      "https://samplesite.com/cancel",
-                                      transactions: [
-                                        {
-                                          "amount": {
-                                            "total":
-                                            '${controller.totalPrice.value}',
-                                            "currency": "USD",
-                                            "details": {
-                                              "subtotal":
-                                              '${controller.totalPrice}',
-                                              "shipping": '0',
-                                              "shipping_discount": 0
-                                            }
-                                          },
-                                          "description":
-                                          "The payment transaction description.",
-                                          // "payment_options": {
-                                          //   "allowed_payment_method":
-                                          //       "INSTANT_FUNDING_SOURCE"
-                                          // },
-                                          "item_list": {
-                                            "items": [
-                                              {
-                                                "name":
-                                                '${controller.cartProducts[0].name}',
-                                                "price":
-                                                '${controller.totalPrice.value}',
-                                                "quantity": controller
-                                                    .cartProducts[0]
-                                                    .quantity,
-                                                "currency": "USD"
-                                              }
-                                            ],
+                              MaterialPageRoute(
+                                builder: (BuildContext context) => UsePaypal(
+                                    sandboxMode: true,
+                                    clientId:
+                                    "AeTlljGALqTeaPOFRqoMUEegumbHe7eI5k8gZQiF9wb1dnVEocU35IR8xSf76mT62PmNXJ8IPXjQJCJ3",
+                                    secretKey:
+                                    "EFE5YRnFi0Ut-QNZSobX-gEmS9g7-cAUN8Z-DlidjIngCnk8inPkTgFXfAE9hJK7cM1fVbs6s0pfH3__",
+                                    returnURL: "https://samplesite.com/return",
+                                    cancelURL: "https://samplesite.com/cancel",
+                                    transactions:  [
 
-                                            // shipping address is not required though
-                                            "shipping_address": {
-                                              "recipient_name":
-                                              "${stepfalse!.datapickk!.name}",
-                                              "line1":
-                                              "${stepfalse!.datapickk!.add}",
-                                              "line2":
-                                              "${stepfalse!.datapickk!.add1}",
-                                              "city":
-                                              "${stepfalse!.datapickk!.city}",
-                                              "country_code": "US",
-                                              "postal_code": "${stepfalse!.datapickk!.zip}",
-                                              "phone": "${stepfalse!.datapickk!.phone}",
-                                              "state": "Texas"
-                                            },
+                                      {
+                                        "amount": {
+                                          "total": widget.pricenamenevigatior,
+                                          "currency": "USD",
+                                          "details": {
+                                            "subtotal": widget.pricenamenevigatior,
+                                            "shipping": '0',
+                                            "shipping_discount": 0
                                           }
-                                        }
-                                      ],
-                                      note:
-                                      "Contact us for any questions on your order.",
-                                      onSuccess: (Map params) async {
-                                        Fluttertoast.showToast(
-                                            msg:
-                                            "Paid : \$100",
-                                            toastLength:
-                                            Toast.LENGTH_SHORT,
-                                            gravity: ToastGravity.CENTER,
-                                            timeInSecForIosWeb: 1,
-                                            backgroundColor: Colors.red,
-                                            textColor: Colors.white,
-                                            fontSize: 16.0);
-                                        // controller.isEmptyCart;
-                                        Text("onSuccess: $params");
-                                      },
-                                      onError: (error) {
-                                        Fluttertoast.showToast(
-                                            msg: "Connection Error",
-                                            toastLength:
-                                            Toast.LENGTH_SHORT,
-                                            gravity: ToastGravity.CENTER,
-                                            timeInSecForIosWeb: 1,
-                                            backgroundColor: Colors.red,
-                                            textColor: Colors.white,
-                                            fontSize: 16.0);
+                                        },
+                                        "description":
+                                        "The payment transaction description.",
+                                        // "payment_options": {
+                                        //   "allowed_payment_method":
+                                        //       "INSTANT_FUNDING_SOURCE"
+                                        // },
+                                        "item_list": {
+                                          "items": [
+                                            {
+                                              "name": "A demo product",
+                                              "quantity": 1,
+                                              "price": widget.pricenamenevigatior,
+                                              "currency": "USD"
+                                            }
+                                          ],
 
-                                        print("onError: $error");
-                                      },
-                                      onCancel: (params) {
-                                        Fluttertoast.showToast(
-                                            msg: "Payment Cancelled",
-                                            toastLength:
-                                            Toast.LENGTH_SHORT,
-                                            gravity: ToastGravity.CENTER,
-                                            timeInSecForIosWeb: 1,
-                                            backgroundColor: Colors.red,
-                                            textColor: Colors.white,
-                                            fontSize: 16.0);
-                                        print('cancelled: $params');
-                                      }),
-                            ),
-                          );
+                                          // shipping address is not required though
+                                          "shipping_address": {
+                                            "recipient_name": "Jane Foster",
+                                            "line1": "Travis County",
+                                            "line2": "",
+                                            "city": "Austin",
+                                            "country_code": "US",
+                                            "postal_code": "73301",
+                                            "phone": "+00000000",
+                                            "state": "Texas"
+                                          },
+                                        }
+                                      }
+                                    ],
+                                    note: "Contact us for any questions on your order.",
+                                    onSuccess: (Map params) async {
+                                      Fluttertoast.showToast(
+                                          msg:
+
+
+                                          "Paid : \$ ${widget.pricenamenevigatior}",
+                                          toastLength:
+                                          Toast.LENGTH_SHORT,
+                                          // gravity: ToastGravity.CENTER,
+                                          timeInSecForIosWeb: 1,
+                                          backgroundColor: Colors.red,
+                                          textColor: Colors.white,
+                                          fontSize: 16.0);
+                                      Text("onSuccess: $params");
+
+                                      
+
+
+                                    },
+                                    onError: (error) {
+                                      Fluttertoast.showToast(
+                                          msg: "Connection Error",
+                                          toastLength:
+                                          Toast.LENGTH_SHORT,
+                                          // gravity: ToastGravity.CENTER,
+                                          timeInSecForIosWeb: 1,
+                                          backgroundColor: Colors.red,
+                                          textColor: Colors.white,
+                                          fontSize: 16.0);
+                                      print("onError: $error");
+                                    },
+                                    onCancel: (params) {
+                                      Fluttertoast.showToast(
+                                          msg: "Payment Cancelled",
+                                          toastLength:
+                                          Toast.LENGTH_SHORT,
+                                          // gravity: ToastGravity.CENTER,
+                                          timeInSecForIosWeb: 1,
+                                          backgroundColor: Colors.red,
+                                          textColor: Colors.white,
+                                          fontSize: 16.0);
+                                      print('cancelled: $params');
+                                    }
+
+
+
+                                    ),
+                              ));
+
+
+
+                          // Navigator.of(context).push(
+                          //   MaterialPageRoute(
+                          //     builder: (BuildContext context) => PaypalPayment(
+                          //       onFinish: (number) async {
+                          //
+                          //         // payment done
+                          //         print('order id: '+number);
+                          //
+                          //       },
+                          //     ),
+                          //   ),
+                          // );
+                          // Navigator.of(context).push(
+                          //   MaterialPageRoute(
+                          //     builder: (BuildContext context) =>
+                          //         UsePaypal(
+                          //             sandboxMode: true,
+                          //             clientId:
+                          //             "AX8Iqc4WKBgxRXtEl_hNIb7QN6roR4dxGgVbGrR6WuXTncqGyy1kb-xjfsJ_4RPKtsyVpOk0ia04Lv_g",
+                          //             secretKey:
+                          //             "EGFMgAdjWR-Ls0WqGnCzrjRyO7plbJcLCcq6vBL8WZxkl2PQvOiUqp0x7hgEkquLyMpr5CmgLc0CWBRl",
+                          //             returnURL:
+                          //             "https://samplesite.com/return",
+                          //             cancelURL:
+                          //             "https://samplesite.com/cancel",
+                          //             transactions: [
+                          //               {
+                          //                 "amount": {
+                          //                   "total":
+                          //                   '${controller.totalPrice.value}',
+                          //                   "currency": "USD",
+                          //                   "details": {
+                          //                     "subtotal":
+                          //                     '${controller.totalPrice}',
+                          //                     "shipping": '0',
+                          //                     "shipping_discount": 0
+                          //                   }
+                          //                 },
+                          //                 "description":
+                          //                 "The payment transaction description.",
+                          //                 // "payment_options": {
+                          //                 //   "allowed_payment_method":
+                          //                 //       "INSTANT_FUNDING_SOURCE"
+                          //                 // },
+                          //                 "item_list": {
+                          //                   "items": [
+                          //                     {
+                          //                       "name":
+                          //                       '${controller.cartProducts[0].name}',
+                          //                       "price":
+                          //                       '${controller.totalPrice.value}',
+                          //                       "quantity": controller
+                          //                           .cartProducts[0]
+                          //                           .quantity,
+                          //                       "currency": "USD"
+                          //                     }
+                          //                   ],
+                          //
+                          //                   // shipping address is not required though
+                          //                   "shipping_address": {
+                          //                     "recipient_name":
+                          //                     "${stepfalse!.datapickk!.name}",
+                          //                     "line1":
+                          //                     "${stepfalse!.datapickk!.add}",
+                          //                     "line2":
+                          //                     "${stepfalse!.datapickk!.add1}",
+                          //                     "city":
+                          //                     "${stepfalse!.datapickk!.city}",
+                          //                     "country_code": "US",
+                          //                     "postal_code": "${stepfalse!.datapickk!.zip}",
+                          //                     "phone": "${stepfalse!.datapickk!.phone}",
+                          //                     "state": "Texas"
+                          //                   },
+                          //                 }
+                          //               }
+                          //             ],
+                          //             note:
+                          //             "Contact us for any questions on your order.",
+                          //             onSuccess: (Map params) async {
+                          //               Fluttertoast.showToast(
+                          //                   msg:
+                          //                   "Paid : \$100",
+                          //                   toastLength:
+                          //                   Toast.LENGTH_SHORT,
+                          //                   gravity: ToastGravity.CENTER,
+                          //                   timeInSecForIosWeb: 1,
+                          //                   backgroundColor: Colors.red,
+                          //                   textColor: Colors.white,
+                          //                   fontSize: 16.0);
+                          //               // controller.isEmptyCart;
+                          //               Text("onSuccess: $params");
+                          //             },
+                          //             onError: (error) {
+                          //               Fluttertoast.showToast(
+                          //                   msg: "Connection Error",
+                          //                   toastLength:
+                          //                   Toast.LENGTH_SHORT,
+                          //                   gravity: ToastGravity.CENTER,
+                          //                   timeInSecForIosWeb: 1,
+                          //                   backgroundColor: Colors.red,
+                          //                   textColor: Colors.white,
+                          //                   fontSize: 16.0);
+                          //
+                          //               print("onError: $error");
+                          //             },
+                          //             onCancel: (params) {
+                          //               Fluttertoast.showToast(
+                          //                   msg: "Payment Cancelled",
+                          //                   toastLength:
+                          //                   Toast.LENGTH_SHORT,
+                          //                   gravity: ToastGravity.CENTER,
+                          //                   timeInSecForIosWeb: 1,
+                          //                   backgroundColor: Colors.red,
+                          //                   textColor: Colors.white,
+                          //                   fontSize: 16.0);
+                          //               print('cancelled: $params');
+                          //             }),
+                          //   ),
+                          // );
                           // Navigator.push(
                           //     context,
                           //     MaterialPageRoute(
