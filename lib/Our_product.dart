@@ -27,7 +27,8 @@ class products {
 class _ourproductState extends State<ourproduct> {
   List<products> images = [
     products("assets/download.jpg", "Nike Air Max 20", 240),
-    products("assets/1672334109-jordan-3-1672334059.jpg", "Excee Sneekers", 260),
+    products(
+        "assets/1672334109-jordan-3-1672334059.jpg", "Excee Sneekers", 260),
     products("assets/download (2).jpg", "Air Max Motion 2", 290),
     products("assets/download (3).jpg", "Leather Sneekers", 270),
     products("assets/pexels-melvin-buezo-2529147.jpg", "Excee Sneekers", 240),
@@ -380,21 +381,19 @@ class _ourproductState extends State<ourproduct> {
                           mainAxisSpacing: 15),
                       itemBuilder: (BuildContext context, int index) {
                         return GestureDetector(
-
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => add_cart(
-                                        imagenevigator:
-                                        (images[index].image).toString(),
-                                        pronamenevigatior:
-                                        (images[index].Brand_Name).toString(),
-                                        pricenamenevigatior: images[index].Price,
-
-                                      )));
-
-
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => add_cart(
+                                          imagenevigator:
+                                              (images[index].image).toString(),
+                                          pronamenevigatior:
+                                              (images[index].Brand_Name)
+                                                  .toString(),
+                                          pricenamenevigatior:
+                                              images[index].Price,
+                                        )));
                           },
                           child: Column(
                             children: [
@@ -430,7 +429,9 @@ class _ourproductState extends State<ourproduct> {
                                           color: Color(0xff414591)),
                                     ),
                                     Text(
-                                      '\₹ ' + images[index].Price.toString() + '.00',
+                                      '\₹ ' +
+                                          images[index].Price.toString() +
+                                          '.00',
                                       style: TextStyle(
                                           fontSize: 3.h,
                                           fontWeight: FontWeight.bold,

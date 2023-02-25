@@ -40,22 +40,21 @@ class _cart_orderState extends State<cart_order> {
 
   int cart = 0;
   int i = 1;
-int? price;
-int? intialprice;
+  int? price;
+  int? intialprice;
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
-@override
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
     setState(() {
       price = widget.pricenamenevigatior;
       intialprice = widget.pricenamenevigatior;
-
     });
   }
+
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
         child: Scaffold(
       backgroundColor: Colors.grey.shade300,
@@ -122,7 +121,7 @@ int? intialprice;
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                     '\₹ ' +'${price!.toInt()}'+ '.00',
+                                        '\₹ ' + '${price!.toInt()}' + '.00',
                                         style: TextStyle(
                                             color: Color(0xff5a5a9f),
                                             fontSize: 2.5.h,
@@ -232,20 +231,20 @@ int? intialprice;
                 },
               ),
             ),
-             Container(
-               height: 15.h,
-               decoration: BoxDecoration(
-                   color: Color(0xfff7f7f7),
-                   borderRadius: BorderRadius.only(
-                       topLeft: Radius.circular(40),
-                       topRight: Radius.circular(40))),
-               child: Padding(
-                 padding:  EdgeInsets.symmetric(horizontal: 2.h),
-                 child: Row(
+            Container(
+              height: 15.h,
+              decoration: BoxDecoration(
+                  color: Color(0xfff7f7f7),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40),
+                      topRight: Radius.circular(40))),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 2.h),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '\₹ ' +  "$price"+ '.00',
+                      '\₹ ' + "$price" + '.00',
                       style: TextStyle(
                           fontSize: 4.h,
                           fontWeight: FontWeight.bold,
@@ -257,18 +256,11 @@ int? intialprice;
                             context,
                             MaterialPageRoute(
                                 builder: (context) => check_out_details(
-                                  imagenevigator:
-                                  widget.imagenevigator.toString(),
-                                  pronamenevigatior:
-                                  widget.pronamenevigatior.toString(),
-                                  pricenamenevigatior:    price
-
-
-                                )
-                            )
-                        );
-
-
+                                    imagenevigator:
+                                        widget.imagenevigator.toString(),
+                                    pronamenevigatior:
+                                        widget.pronamenevigatior.toString(),
+                                    pricenamenevigatior: price)));
                       },
                       child: Container(
                         height: 7.h,
@@ -285,26 +277,26 @@ int? intialprice;
                                 ),
                                 onPressed: () {},
                               ),
-                              Text("Check Out", style: TextStyle(color: Color(0xff99b7e2)),),
+                              Text(
+                                "Check Out",
+                                style: TextStyle(color: Color(0xff99b7e2)),
+                              ),
                             ],
                           ),
                         ),
                         decoration: BoxDecoration(
                           color: Color(0xff3e45aa),
-                          borderRadius:
-                          BorderRadius.all(Radius.circular(20)),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
                         ),
                       ),
                     ),
                   ],
+                ),
+              ),
             ),
-               ),
-             ),
-
           ],
         ),
       ),
-    )
-    );
+    ));
   }
 }

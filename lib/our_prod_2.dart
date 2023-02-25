@@ -411,7 +411,9 @@ class _add_cartState extends State<add_cart> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  '\₹ ' +   widget.pricenamenevigatior.toString()+ '.00',
+                                  '\₹ ' +
+                                      widget.pricenamenevigatior.toString() +
+                                      '.00',
                                   style: TextStyle(
                                       fontSize: 4.h,
                                       fontWeight: FontWeight.bold,
@@ -429,8 +431,8 @@ class _add_cartState extends State<add_cart> {
                                                   pronamenevigatior: widget
                                                       .pronamenevigatior
                                                       .toString(),
-                                                  pricenamenevigatior:
-                                                      widget.pricenamenevigatior,
+                                                  pricenamenevigatior: widget
+                                                      .pricenamenevigatior,
                                                 )));
                                   },
                                   child: Container(

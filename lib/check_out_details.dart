@@ -311,216 +311,90 @@ class _check_out_detailsState extends State<check_out_details> {
                       padding: EdgeInsets.symmetric(horizontal: 2.h),
                       child: GestureDetector(
                         onTap: () {
-                          // Navigator.of(context).push(
-                          //   MaterialPageRoute(
-                          //     builder: (BuildContext context) =>
-                          //         UsePaypal(
-                          //             sandboxMode: true,
-                          //             clientId:
-                          //             "Ad4MfIRjqBNOhnvGxvg-FocKsc2xTbYa6x1Wxmust02CZtOx3YzzTsWotxwHeIcetWUn6BFXAenALwxj",
-                          //             secretKey:
-                          //             "EFJUgQz4LImHw32NyKYwlQKapYJBo4hhkLHYCCD1CyVEGtuGCWxkDhJ7Umq749kf6zt2pDP-3eIN96kJ",
-                          //             returnURL:
-                          //             "https://samplesite.com/return",
-                          //             cancelURL:
-                          //             "https://samplesite.com/cancel",
-                          //             transactions: [
-                          //               {
-                          //                 "amount": {
-                          //                   "total":
-                          //                   '245',
-                          //                   "currency": "USD",
-                          //                   "details": {
-                          //                     "subtotal":
-                          //                     '240',
-                          //                     "shipping": '0',
-                          //                     "shipping_discount": 0
-                          //                   }
-                          //                 },
-                          //                 "description":
-                          //                 "The payment transaction description.",
-                          //                 // "payment_options": {
-                          //                 //   "allowed_payment_method":
-                          //                 //       "INSTANT_FUNDING_SOURCE"
-                          //                 // },
-                          //                 "item_list": {
-                          //                   "items": [
-                          //                     {
-                          //                       "name":
-                          //                       'sohel',
-                          //                       "price":
-                          //                       '245',
-                          //                       "quantity":1,
-                          //                       "currency": "USD"
-                          //                     }
-                          //                   ],
-                          //
-                          //                   // shipping address is not required though
-                          //                   "shipping_address": {
-                          //                     "recipient_name":
-                          //                     "asd",
-                          //                     "line1":
-                          //                     "asdasd",
-                          //                     "line2":
-                          //                     "ddd",
-                          //                     "city":
-                          //                     "zcxzcx",
-                          //                     "country_code": "US",
-                          //                     "postal_code": "395004",
-                          //                     "phone": "1020503305",
-                          //                     "state": "Texas"
-                          //                   },
-                          //                 }
-                          //               }
-                          //             ],
-                          //             note:
-                          //             "Contact us for any questions on your order.",
-                          //             onSuccess: (Map params) async {
-                          //               Fluttertoast.showToast(
-                          //                   msg:
-                          //                   "Paid : \$ 245",
-                          //                   toastLength:
-                          //                   Toast.LENGTH_SHORT,
-                          //                   gravity: ToastGravity.CENTER,
-                          //                   timeInSecForIosWeb: 1,
-                          //                   backgroundColor: Colors.red,
-                          //                   textColor: Colors.white,
-                          //                   fontSize: 16.0);
-                          //
-                          //               Text("onSuccess: $params");
-                          //             },
-                          //             onError: (error) {
-                          //               Fluttertoast.showToast(
-                          //                   msg: "Connection Error",
-                          //                   toastLength:
-                          //                   Toast.LENGTH_SHORT,
-                          //                   gravity: ToastGravity.CENTER,
-                          //                   timeInSecForIosWeb: 1,
-                          //                   backgroundColor: Colors.red,
-                          //                   textColor: Colors.white,
-                          //                   fontSize: 16.0);
-                          //
-                          //               print("onError: $error");
-                          //             },
-                          //             onCancel: (params) {
-                          //               Fluttertoast.showToast(
-                          //                   msg: "Payment Cancelled",
-                          //                   toastLength:
-                          //                   Toast.LENGTH_SHORT,
-                          //                   gravity: ToastGravity.CENTER,
-                          //                   timeInSecForIosWeb: 1,
-                          //                   backgroundColor: Colors.red,
-                          //                   textColor: Colors.white,
-                          //                   fontSize: 16.0);
-                          //               print('cancelled: $params');
-                          //             }),
-                          //   ),
-                          // );
-
                           ////github code
-                          Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (BuildContext context) => UsePaypal(
-                                    sandboxMode: true,
-                                    clientId:
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (BuildContext context) => UsePaypal(
+                                sandboxMode: true,
+                                clientId:
                                     "AeTlljGALqTeaPOFRqoMUEegumbHe7eI5k8gZQiF9wb1dnVEocU35IR8xSf76mT62PmNXJ8IPXjQJCJ3",
-                                    secretKey:
+                                secretKey:
                                     "EFE5YRnFi0Ut-QNZSobX-gEmS9g7-cAUN8Z-DlidjIngCnk8inPkTgFXfAE9hJK7cM1fVbs6s0pfH3__",
-                                    returnURL: "https://samplesite.com/return",
-                                    cancelURL: "https://samplesite.com/cancel",
-                                    transactions:  [
-
-                                      {
-                                        "amount": {
-                                          "total": widget.pricenamenevigatior,
-                                          "currency": "USD",
-                                          "details": {
-                                            "subtotal": widget.pricenamenevigatior,
-                                            "shipping": '0',
-                                            "shipping_discount": 0
-                                          }
-                                        },
-                                        "description":
-                                        "The payment transaction description.",
-                                        // "payment_options": {
-                                        //   "allowed_payment_method":
-                                        //       "INSTANT_FUNDING_SOURCE"
-                                        // },
-                                        "item_list": {
-                                          "items": [
-                                            {
-                                              "name": "A demo product",
-                                              "quantity": 1,
-                                              "price": widget.pricenamenevigatior,
-                                              "currency": "USD"
-                                            }
-                                          ],
-
-                                          // shipping address is not required though
-                                          "shipping_address": {
-                                            "recipient_name": "Jane Foster",
-                                            "line1": "Travis County",
-                                            "line2": "",
-                                            "city": "Austin",
-                                            "country_code": "US",
-                                            "postal_code": "73301",
-                                            "phone": "+00000000",
-                                            "state": "Texas"
-                                          },
-                                        }
+                                returnURL: "https://samplesite.com/return",
+                                cancelURL: "https://samplesite.com/cancel",
+                                transactions: [
+                                  {
+                                    "amount": {
+                                      "total": widget.pricenamenevigatior,
+                                      "currency": "USD",
+                                      "details": {
+                                        "subtotal": widget.pricenamenevigatior,
+                                        "shipping": '0',
+                                        "shipping_discount": 0
                                       }
-                                    ],
-                                    note: "Contact us for any questions on your order.",
-                                    onSuccess: (Map params) async {
-                                      Fluttertoast.showToast(
-                                          msg:
-
-
-                                          "Paid : \$ ${widget.pricenamenevigatior}",
-                                          toastLength:
-                                          Toast.LENGTH_SHORT,
-                                          // gravity: ToastGravity.CENTER,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                      Text("onSuccess: $params");
-
-                                      
-
-
                                     },
-                                    onError: (error) {
-                                      Fluttertoast.showToast(
-                                          msg: "Connection Error",
-                                          toastLength:
-                                          Toast.LENGTH_SHORT,
-                                          // gravity: ToastGravity.CENTER,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                      print("onError: $error");
-                                    },
-                                    onCancel: (params) {
-                                      Fluttertoast.showToast(
-                                          msg: "Payment Cancelled",
-                                          toastLength:
-                                          Toast.LENGTH_SHORT,
-                                          // gravity: ToastGravity.CENTER,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                      print('cancelled: $params');
+                                    "description":
+                                        "The payment transaction description.",
+                                    "item_list": {
+                                      "items": [
+                                        {
+                                          "name": "A demo product",
+                                          "quantity": 1,
+                                          "price": widget.pricenamenevigatior,
+                                          "currency": "USD"
+                                        }
+                                      ],
+
+                                      // shipping address is not required though
+                                      "shipping_address": {
+                                        "recipient_name": "Jane Foster",
+                                        "line1": "Travis County",
+                                        "line2": "",
+                                        "city": "Austin",
+                                        "country_code": "US",
+                                        "postal_code": "73301",
+                                        "phone": "+00000000",
+                                        "state": "Texas"
+                                      },
                                     }
-
-
-
-                                    ),
-                              ));
-
-
+                                  }
+                                ],
+                                note:
+                                    "Contact us for any questions on your order.",
+                                onSuccess: (Map params) async {
+                                  Fluttertoast.showToast(
+                                      msg:
+                                          "Paid : \$ ${widget.pricenamenevigatior}",
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      // gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 1,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0);
+                                  Text("onSuccess: $params");
+                                },
+                                onError: (error) {
+                                  Fluttertoast.showToast(
+                                      msg: "Connection Error",
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      // gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 1,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0);
+                                  print("onError: $error");
+                                },
+                                onCancel: (params) {
+                                  Fluttertoast.showToast(
+                                      msg: "Payment Cancelled",
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      // gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 1,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0);
+                                  print('cancelled: $params');
+                                }),
+                          ));
 
                           // Navigator.of(context).push(
                           //   MaterialPageRoute(
@@ -653,7 +527,6 @@ class _check_out_detailsState extends State<check_out_details> {
                           //
                           //
                           //         )));
-
                         },
                         child: Container(
                           alignment: Alignment.center,

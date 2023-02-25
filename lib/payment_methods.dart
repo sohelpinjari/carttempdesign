@@ -5,19 +5,24 @@ import 'package:sizer/sizer.dart';
 import 'Our_product.dart';
 
 class payment_method extends StatefulWidget {
-
   String? imagenevigator;
   String? pronamenevigatior;
   int? pricenamenevigatior;
-   payment_method({Key? key, this.imagenevigator, this.pronamenevigatior, this.pricenamenevigatior, }) : super(key: key);
+  payment_method({
+    Key? key,
+    this.imagenevigator,
+    this.pronamenevigatior,
+    this.pricenamenevigatior,
+  }) : super(key: key);
 
   @override
   State<payment_method> createState() => _payment_methodState();
 }
+
 class products {
   String? image;
 
-String? Brand_Name;
+  String? Brand_Name;
 // // String? Street_Wear;
 // // String? Artist_Name;
 // // String? size_s;
@@ -26,27 +31,32 @@ String? Brand_Name;
 //
 // int? Price;
 
-
   products(this.image, this.Brand_Name);
 }
-
 
 class _payment_methodState extends State<payment_method> {
   bool? check = false;
 
   // bool isChecked = false;
   List<products> images = [
-    products("assets/Mastercard-logo.png", "**182", ),
-    products("assets/paypal_PNG7.png", "**182", ),
-    products("assets/images.png", "**182", ),
-
+    products(
+      "assets/Mastercard-logo.png",
+      "**182",
+    ),
+    products(
+      "assets/paypal_PNG7.png",
+      "**182",
+    ),
+    products(
+      "assets/images.png",
+      "**182",
+    ),
   ];
   List<String> image = [];
   List<bool> checkbox = [
     false,
     false,
     false,
-
   ];
   int cart = 0;
   int i = 1;
@@ -64,9 +74,7 @@ class _payment_methodState extends State<payment_method> {
       intialprice = widget.pricenamenevigatior;
       finalprice = price! + tax;
       image = [
-
         widget.imagenevigator.toString(),
-
       ];
     });
   }
@@ -131,7 +139,7 @@ class _payment_methodState extends State<payment_method> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: Image.asset(
-                               images[index].image.toString(),
+                              images[index].image.toString(),
                               // 'assets/preview.jpg',
                               // widget.imagenevigator.toString(),
                               height: 4.h,
@@ -142,56 +150,56 @@ class _payment_methodState extends State<payment_method> {
                           Text(
                             images[index].Brand_Name.toString(),
                             style: TextStyle(
-                                fontSize: 2.5.h,
-                                fontWeight: FontWeight.bold),
+                                fontSize: 2.5.h, fontWeight: FontWeight.bold),
                           ),
 
-                    // InkWell(
-                    //   onTap: () {
-                    //     setState(() {
-                    //       isChecked = !isChecked;
-                    //
-                    //
-                    //     });
-                    //   },
-                    //   child: Container(
-                    //
-                    //     width: 24,
-                    //     height: 24,
-                    //     decoration: BoxDecoration(
-                    //
-                    //       shape: BoxShape.circle,
-                    //       border: Border.all(color: Colors.grey),
-                    //       color: isChecked ? Colors.orange : Colors.transparent,
-                    //     ),
-                    //     child: Icon(
-                    //       Icons.circle_outlined,
-                    //       color: Colors.white,
-                    //       size: 22,
-                    //     ),
-                    //   ),
-                    // )
+                          // InkWell(
+                          //   onTap: () {
+                          //     setState(() {
+                          //       isChecked = !isChecked;
+                          //
+                          //
+                          //     });
+                          //   },
+                          //   child: Container(
+                          //
+                          //     width: 24,
+                          //     height: 24,
+                          //     decoration: BoxDecoration(
+                          //
+                          //       shape: BoxShape.circle,
+                          //       border: Border.all(color: Colors.grey),
+                          //       color: isChecked ? Colors.orange : Colors.transparent,
+                          //     ),
+                          //     child: Icon(
+                          //       Icons.circle_outlined,
+                          //       color: Colors.white,
+                          //       size: 22,
+                          //     ),
+                          //   ),
+                          // )
                           Container(
                             // height: 5.h,
                             // width: 15.w,
                             child:
-                          //     Radio(
-                          //  groupValue: gender,
-                          //      value: images.length ,
-                          // onChanged: (val) {
-                          //   print(gender);
-                          //   setState(() {
-                          //     gender = val as String?;
-                          //   });
-                            Transform.scale(
+                                //     Radio(
+                                //  groupValue: gender,
+                                //      value: images.length ,
+                                // onChanged: (val) {
+                                //   print(gender);
+                                //   setState(() {
+                                //     gender = val as String?;
+                                //   });
+                                Transform.scale(
                               scale: 1.5,
-                              child:
-                              Checkbox(
-                                  materialTapTargetSize: MaterialTapTargetSize.padded,
-                                  shape:RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(15.0),
-                                    ),),
+                              child: Checkbox(
+                                materialTapTargetSize:
+                                    MaterialTapTargetSize.padded,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(15.0),
+                                  ),
+                                ),
 
                                 // checkColor: Color(0xff333389),
                                 activeColor: Color(0xff333389),
@@ -203,11 +211,8 @@ class _payment_methodState extends State<payment_method> {
                                     if (index == 0 && checkbox[0]) {
                                       checkbox[1] = false;
                                       checkbox[2] = false;
-
                                     } else if (index != 0 && checkbox[index]) {
                                       checkbox[0] = false;
-
-
                                     }
                                   });
 
@@ -215,14 +220,15 @@ class _payment_methodState extends State<payment_method> {
                                 },
                               ),
                             ),
-                          )],
+                          )
+                        ],
                       ),
                     ),
                   );
                 },
               ),
             ),
-            SizedBox(height:35.h),
+            SizedBox(height: 35.h),
             Container(
               height: 8.h,
               decoration: BoxDecoration(
@@ -238,15 +244,13 @@ class _payment_methodState extends State<payment_method> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => check_out_details(
-                              imagenevigator:
-                              widget.imagenevigator.toString(),
-                              pronamenevigatior:
-                              widget.pronamenevigatior.toString(),
-                              pricenamenevigatior:    widget.pricenamenevigatior,
-
-
-                            )));
-
+                                  imagenevigator:
+                                      widget.imagenevigator.toString(),
+                                  pronamenevigatior:
+                                      widget.pronamenevigatior.toString(),
+                                  pricenamenevigatior:
+                                      widget.pricenamenevigatior,
+                                )));
                   },
                   child: Container(
                     alignment: Alignment.center,
