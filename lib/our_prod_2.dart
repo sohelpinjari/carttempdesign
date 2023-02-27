@@ -7,12 +7,14 @@ class add_cart extends StatefulWidget {
   String? imagenevigator;
   String? pronamenevigatior;
   int? pricenamenevigatior;
+  String? idnev;
 
   add_cart(
       {Key? key,
       this.imagenevigator,
       this.pronamenevigatior,
-      this.pricenamenevigatior})
+      this.pricenamenevigatior,
+      this.idnev})
       : super(key: key);
 
   @override
@@ -30,13 +32,14 @@ class products {
   // String? size_l;
 
   int? Price;
+  String? id;
 
-  products(this.image, this.Brand_Name, this.Price);
+  products(this.image, this.Brand_Name, this.Price, this.id);
 }
 
 class _add_cartState extends State<add_cart> {
   List<products> images = [
-    products("assets/product_1_img2.png", "Brand Name", 240),
+    products("assets/product_1_img2.png", "Brand Name", 240, ''),
   ];
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
   List<String> image = [];
@@ -53,7 +56,8 @@ class _add_cartState extends State<add_cart> {
     image = [
       widget.pronamenevigatior.toString(),
       widget.imagenevigator.toString(),
-      widget.pricenamenevigatior.toString()
+      widget.pricenamenevigatior.toString(),
+      widget.idnev.toString()
     ];
   }
 
@@ -244,11 +248,12 @@ class _add_cartState extends State<add_cart> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 3.h),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               "Built for natural motion, the nike ",
                               style: TextStyle(
-                                  fontSize: 2.1.h, color: Color(0xff8589ae)),
+                                  fontSize: 2.h, color: Color(0xff8589ae)),
                             ),
                             Container(
                               alignment: Alignment.center,
@@ -257,7 +262,7 @@ class _add_cartState extends State<add_cart> {
                               child: Text(
                                 "R",
                                 style: TextStyle(
-                                    fontSize: 1.1.h, color: Color(0xff8589ae)),
+                                    fontSize: 1.h, color: Color(0xff8589ae)),
                               ),
                               decoration: BoxDecoration(
                                   // color: Color(0xffa1dbf5),
@@ -269,7 +274,7 @@ class _add_cartState extends State<add_cart> {
                               child: Text(
                                 " Flex shoes ",
                                 style: TextStyle(
-                                    fontSize: 2.1.h, color: Color(0xff8589ae)),
+                                    fontSize: 2.h, color: Color(0xff8589ae)),
                               ),
                             )
                           ],

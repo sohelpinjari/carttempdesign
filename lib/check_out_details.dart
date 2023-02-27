@@ -1,14 +1,17 @@
 import 'package:carttempdesign/PaypalPayment.dart';
 import 'package:carttempdesign/payment_methods.dart';
+import 'package:carttempdesign/thank_you.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal/flutter_paypal.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sizer/sizer.dart';
+import 'package:uuid/uuid.dart';
 
 class check_out_details extends StatefulWidget {
   String? imagenevigator;
   String? pronamenevigatior;
   int? pricenamenevigatior;
+
   check_out_details(
       {Key? key,
       this.imagenevigator,
@@ -27,6 +30,7 @@ class _check_out_detailsState extends State<check_out_details> {
   int? intialprice;
   int? finalprice;
   int tax = 5;
+  String? thankyou;
 
   @override
   void initState() {
@@ -72,7 +76,7 @@ class _check_out_detailsState extends State<check_out_details> {
               child: Column(
                 children: [
                   Container(
-                    height: 25.h,
+                    height: 20.h,
                     child: ListView.builder(
                       // padding: EdgeInsets.all(0),
                       // visualDensity: VisualDensity(horizontal: 4, vertical: 4),
@@ -361,6 +365,23 @@ class _check_out_detailsState extends State<check_out_details> {
                                 note:
                                     "Contact us for any questions on your order.",
                                 onSuccess: (Map params) async {
+                                  // Create AlertDialog
+                                  // AlertDialog alert = AlertDialog(
+                                  //   title: Text("Simple Alert"),
+                                  //   content: Text("This is an alert message."),
+                                  //   actions: [
+                                  //
+                                  //   ],
+                                  // );
+                                  //
+                                  // // show the dialog
+                                  // showDialog(
+                                  //   context: context,
+                                  //   builder: (BuildContext context) {
+                                  //     return alert;
+                                  //   },
+                                  // );
+
                                   Fluttertoast.showToast(
                                       msg:
                                           "Paid : \$ ${widget.pricenamenevigatior}",
@@ -370,7 +391,21 @@ class _check_out_detailsState extends State<check_out_details> {
                                       backgroundColor: Colors.red,
                                       textColor: Colors.white,
                                       fontSize: 16.0);
-                                  Text("onSuccess: $params");
+
+                                  Text(
+                                    "onSuccess: $params",
+                                  );
+                                  // Navigator.of(context).push(MaterialPageRoute(
+                                  //     builder: (context) =>
+                                  //         thank_you(id: thankyou.toString())));
+                                  var uuid = Uuid();
+                                  uuid.v1();
+                                  uuid.v4();
+                                  thankyou = uuid.v4();
+                                  // print(uuid.v4());
+
+// Generate a v5 (namespace-name-sha1-based) id
+//                                   uuid.v5(uuid.NAMESPACE_URL, 'www.google.com'); // -> 'c74a196f-f19d-5ea9-bffd-a2742432fc9c'
                                 },
                                 onError: (error) {
                                   Fluttertoast.showToast(
@@ -549,6 +584,48 @@ class _check_out_detailsState extends State<check_out_details> {
                             color: Color(0xff3e45aa),
                             borderRadius: BorderRadius.all(Radius.circular(20)),
                           ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 2.h),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                thank_you(id: thankyou.toString())));
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 7.h,
+                        width: MediaQuery.of(context).size.width,
+                        child: Padding(
+                          padding: EdgeInsets.all(1.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                icon: Icon(
+                                  Icons.exit_to_app,
+                                  color: Color(0xff99b7e2),
+                                  size: 3.h,
+                                ),
+                                onPressed: () {},
+                              ),
+                              Text(
+                                "Transaction Detail",
+                                style: TextStyle(color: Color(0xff99b7e2)),
+                              ),
+                            ],
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                          color: Color(0xff3e45aa),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
                         ),
                       ),
                     ),

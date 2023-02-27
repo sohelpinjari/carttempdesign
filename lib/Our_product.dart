@@ -19,22 +19,25 @@ class products {
   // String? size_m;
   // String? size_l;
 
+  String? id;
+
   int? Price;
 
-  products(this.image, this.Brand_Name, this.Price);
+  products(this.image, this.Brand_Name, this.Price, this.id);
 }
 
 class _ourproductState extends State<ourproduct> {
   List<products> images = [
-    products("assets/download.jpg", "Nike Air Max 20", 240),
+    products("assets/download.jpg", "Nike Air Max 20", 1, '1'),
+    products("assets/1672334109-jordan-3-1672334059.jpg", "Excee Sneekers", 260,
+        "2"),
+    products("assets/download (2).jpg", "Air Max Motion 2", 290, '3'),
+    products("assets/download (3).jpg", "Leather Sneekers", 270, '4'),
     products(
-        "assets/1672334109-jordan-3-1672334059.jpg", "Excee Sneekers", 260),
-    products("assets/download (2).jpg", "Air Max Motion 2", 290),
-    products("assets/download (3).jpg", "Leather Sneekers", 270),
-    products("assets/pexels-melvin-buezo-2529147.jpg", "Excee Sneekers", 240),
-    products("assets/images.jpg", "Excee Sneekers", 240),
-    products("assets/download.jpg", "Excee Sneekers", 240),
-    products("assets/download.jpg", "Excee Sneekers", 240),
+        "assets/pexels-melvin-buezo-2529147.jpg", "Excee Sneekers", 240, '5'),
+    products("assets/images.jpg", "Excee Sneekers", 240, '6'),
+    products("assets/download.jpg", "Excee Sneekers", 240, '7'),
+    products("assets/download.jpg", "Excee Sneekers", 240, '8'),
   ];
 
   int _selectedIndex = 0;
