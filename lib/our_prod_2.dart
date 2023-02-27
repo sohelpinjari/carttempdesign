@@ -438,6 +438,7 @@ class _add_cartState extends State<add_cart> {
                                                       .toString(),
                                                   pricenamenevigatior: widget
                                                       .pricenamenevigatior,
+                                              idnev: widget.idnev,
                                                 )));
                                   },
                                   child: Container(

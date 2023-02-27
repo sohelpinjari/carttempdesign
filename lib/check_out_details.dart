@@ -11,12 +11,15 @@ class check_out_details extends StatefulWidget {
   String? imagenevigator;
   String? pronamenevigatior;
   int? pricenamenevigatior;
+  String? idnev;
 
   check_out_details(
       {Key? key,
       this.imagenevigator,
       this.pronamenevigatior,
-      this.pricenamenevigatior})
+      this.pricenamenevigatior,
+      this.idnev
+      })
       : super(key: key);
 
   @override
@@ -40,6 +43,7 @@ class _check_out_detailsState extends State<check_out_details> {
       price = widget.pricenamenevigatior;
       intialprice = widget.pricenamenevigatior;
       finalprice = price! + tax;
+      widget.idnev.toString();
     });
   }
 
@@ -597,7 +601,15 @@ class _check_out_detailsState extends State<check_out_details> {
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) =>
-                                thank_you(id: thankyou.toString())));
+                                thank_you(id: thankyou.toString(),
+                                  idnev: widget.idnev,
+                                  imagenevigator: widget.imagenevigator,
+                                  pronamenevigatior: widget.pronamenevigatior,
+                                  pricenamenevigatior: price,
+                                ),
+
+
+                        ));
                       },
                       child: Container(
                         alignment: Alignment.center,

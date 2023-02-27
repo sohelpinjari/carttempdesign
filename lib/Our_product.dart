@@ -396,6 +396,7 @@ class _ourproductState extends State<ourproduct> {
                                                   .toString(),
                                           pricenamenevigatior:
                                               images[index].Price,
+                                      idnev: images[index].id ,
                                         )));
                           },
                           child: Column(

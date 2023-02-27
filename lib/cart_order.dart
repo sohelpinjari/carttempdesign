@@ -6,12 +6,15 @@ class cart_order extends StatefulWidget {
   String? imagenevigator;
   String? pronamenevigatior;
   int? pricenamenevigatior;
+  String? idnev;
 
   cart_order(
       {Key? key,
       this.imagenevigator,
       this.pronamenevigatior,
-      this.pricenamenevigatior})
+      this.pricenamenevigatior,
+      this.idnev
+      })
       : super(key: key);
 
   @override
@@ -50,6 +53,7 @@ class _cart_orderState extends State<cart_order> {
     setState(() {
       price = widget.pricenamenevigatior;
       intialprice = widget.pricenamenevigatior;
+      widget.idnev.toString();
     });
   }
 
@@ -260,7 +264,10 @@ class _cart_orderState extends State<cart_order> {
                                         widget.imagenevigator.toString(),
                                     pronamenevigatior:
                                         widget.pronamenevigatior.toString(),
-                                    pricenamenevigatior: price)));
+                                    pricenamenevigatior: price,
+                                  idnev: widget.idnev,
+
+                                )));
                       },
                       child: Container(
                         height: 7.h,
