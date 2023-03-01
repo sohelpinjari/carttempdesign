@@ -41,6 +41,8 @@ dependencies:
   flutter_paypal:
   fluttertoast: ^8.2.1
   uuid: ^3.0.7
+  flutter_stripe: ^4.0.0
+
 
 
 

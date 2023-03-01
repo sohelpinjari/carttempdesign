@@ -3,6 +3,7 @@ import 'package:carttempdesign/cart_order.dart';
 import 'package:carttempdesign/check_out_details.dart';
 import 'package:carttempdesign/our_prod_2.dart';
 import 'package:carttempdesign/payment_methods.dart';
+import 'package:carttempdesign/stipe.dart';
 import 'package:carttempdesign/thank_you.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: ourproduct(),
+        home: HomeScreen(),
       );
     });
   }

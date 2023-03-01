@@ -606,6 +606,8 @@ class _check_out_detailsState extends State<check_out_details> {
                                   imagenevigator: widget.imagenevigator,
                                   pronamenevigatior: widget.pronamenevigatior,
                                   pricenamenevigatior: price,
+                                  tax: tax,
+                                  finalprice: finalprice,
                                 ),
 
 
